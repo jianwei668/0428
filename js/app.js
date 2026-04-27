@@ -160,7 +160,7 @@ function showApp() {
   const sidebarUserName = document.getElementById("sidebarUserName");
   if (sidebarUserName) sidebarUserName.textContent = currentUser.name;
   const avatarBadge = document.querySelector(".avatar-badge");
-  if (avatarBadge) avatarBadge.textContent = currentUser.name ? currentUser.name.slice(0, 1) : "员";
+  if (avatarBadge) avatarBadge.setAttribute("title", currentUser.name || "");
 
   switchPage("members");
 }
