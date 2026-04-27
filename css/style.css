@@ -1634,5 +1634,40 @@ input[type="checkbox"]:checked::after {
   .metric-value {
     font-size: 26px;
   }
+
+  /* 日历小屏横向滚动 */
+  .calendar-card {
+    overflow-x: auto;
+  }
+
+  .month-grid {
+    min-width: 480px;
+    margin: 8px;
+  }
+
+  .day-cell {
+    min-height: 76px;
+    padding: 5px;
+  }
+
+  .pill-time {
+    font-size: 10px;
+  }
+
+  .pill-title {
+    font-size: 11px;
+  }
+
+  /* 弹窗在小屏铺满 */
+  .modal-mask {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .modal {
+    width: 100%;
+    max-height: 92vh;
+    border-radius: 24px 24px 0 0;
+  }
 }
 
