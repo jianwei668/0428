@@ -1336,7 +1336,12 @@ input[type="checkbox"]:checked::after {
   }
 
   .app-shell {
-    height: calc(100vh - 20px);
+    height: auto;
+    min-height: calc(100vh - 20px);
+    max-height: none;
+    /* 避免移动端在大面积 backdrop-filter 下出现文字发糊 */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .mobile-menu-btn {
@@ -1369,8 +1374,9 @@ input[type="checkbox"]:checked::after {
     position: fixed;
     inset: 0;
     z-index: 250;
-    background: rgba(15, 23, 42, 0.25);
-    backdrop-filter: blur(3px);
+    background: rgba(15, 23, 42, 0.38);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
   }
 
   .topbar {
@@ -1380,6 +1386,10 @@ input[type="checkbox"]:checked::after {
 
   .user-area {
     flex-wrap: wrap;
+  }
+
+  .content {
+    overflow: visible;
   }
 
   .schedule-layout {
