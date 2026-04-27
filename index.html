@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="antialiased">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>人才项目资料管理系统</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <a href="#content" class="skip-link">跳转到主内容</a>
+
+  <!-- 登录页 -->
+  <section id="loginPage" class="login-page">
+    <div class="login-card glass-panel">
+      <div class="brand-mark login-brand-mark"></div>
+      <div class="login-logo">人才项目资料管理系统</div>
+      <p class="login-subtitle">第一期基础版</p>
+
+      <form onsubmit="handleLogin(); return false;">
+        <div class="form-group">
+          <label for="username">账号</label>
+          <input id="username" class="form-control" type="text" placeholder="请输入账号" autocomplete="username" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">密码</label>
+          <input id="password" class="form-control" type="password" placeholder="请输入密码" autocomplete="current-password" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">登录</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- 后台主界面 -->
+  <section id="appPage" class="app-page hidden">
+    <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+
+    <div class="app-shell glass-panel">
+      <aside class="sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-mark"></div>
+          <div>
+            <div class="sidebar-title">TalentHub</div>
+            <div class="sidebar-subtitle">人才项目中台</div>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="主导航">
+          <button class="menu-item active" data-page="members" onclick="switchPage('members')">
+            <span class="menu-icon"><svg class="menu-svg" viewBox="0 0 256 256" fill="currentColor"><path d="M117.25,157.92a60,60,0,1,0-66.5,0A95.83,95.83,0,0,0,3.53,195.63a8,8,0,1,0,13.4,8.74,80,80,0,0,1,134.14,0,8,8,0,0,0,13.4-8.74A95.83,95.83,0,0,0,117.25,157.92ZM40,108a44,44,0,1,1,44,44A44.05,44.05,0,0,1,40,108Zm210.14,98.7a8,8,0,0,1-11.07-2.33A79.83,79.83,0,0,0,172,168a8,8,0,0,1,0-16,44,44,0,1,0-16.34-84.87,8,8,0,1,1-5.94-14.85,60,60,0,0,1,55.53,105.64,95.83,95.83,0,0,1,47.22,37.71A8,8,0,0,1,250.14,206.7Z"/></svg></span>
+            <span>成员管理</span>
+          </button>
+          <button class="menu-item" data-page="schedules" onclick="switchPage('schedules')">
+            <span class="menu-icon"><svg class="menu-svg" viewBox="0 0 256 256" fill="currentColor"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z"/></svg></span>
+            <span>日程安排</span>
+          </button>
+          <button class="menu-item" data-page="trainings" onclick="switchPage('trainings')">
+            <span class="menu-icon"><svg class="menu-svg" viewBox="0 0 256 256" fill="currentColor"><path d="M251.76,88.94l-120-64a8,8,0,0,0-7.52,0l-120,64a8,8,0,0,0,0,14.12L32,117.87v48.42a15.91,15.91,0,0,0,4.06,10.65C49.16,191.53,78.51,216,128,216a130,130,0,0,0,48-8.76V240a8,8,0,0,0,16,0V199.51a115.63,115.63,0,0,0,27.94-22.57A15.91,15.91,0,0,0,224,166.29V117.87l27.76-14.81a8,8,0,0,0,0-14.12ZM128,200c-43.27,0-68.72-21.14-80-33.71V126.4l76.24,40.66a8,8,0,0,0,7.52,0L176,143.47v46.34C163.4,195.69,147.52,200,128,200Zm80-33.75a97.83,97.83,0,0,1-16,14.25V134.93l16-8.53ZM188,118.94l-.22-.13-56-29.87a8,8,0,0,0-7.52,14.12L171,128l-43,22.93L25,96,128,41.07,231,96Z"/></svg></span>
+            <span>培训项目</span>
+          </button>
+          <button class="menu-item" data-page="books" onclick="switchPage('books')">
+            <span class="menu-icon"><svg class="menu-svg" viewBox="0 0 256 256" fill="currentColor"><path d="M231.65,194.55,198.46,36.75a16,16,0,0,0-19-12.39L132.65,34.42a16.08,16.08,0,0,0-12.3,19l33.19,157.8A16,16,0,0,0,169.16,224a16.25,16.25,0,0,0,3.38-.36l46.81-10.06A16.09,16.09,0,0,0,231.65,194.55ZM136,50.15c0-.06,0-.09,0-.09l46.8-10,3.33,15.87L139.33,66Zm6.62,31.47,46.82-10.05,3.34,15.9L146,97.53Zm6.64,31.57,46.82-10.06,13.3,63.24-46.82,10.06ZM216,197.94l-46.8,10-3.33-15.87L212.67,182,216,197.85C216,197.91,216,197.94,216,197.94ZM104,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V48A16,16,0,0,0,104,32ZM56,48h48V64H56Zm0,32h48v96H56Zm48,128H56V192h48v16Z"/></svg></span>
+            <span>书目库 / 听书</span>
+          </button>
+          <button class="menu-item" data-page="readingPlans" onclick="switchPage('readingPlans')">
+            <span class="menu-icon"><svg class="menu-svg" viewBox="0 0 256 256" fill="currentColor"><path d="M168,152a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,152Zm-8-40H96a8,8,0,0,0,0,16h64a8,8,0,0,0,0-16Zm56-64V216a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V48A16,16,0,0,1,56,32H92.26a47.92,47.92,0,0,1,71.48,0H200A16,16,0,0,1,216,48ZM96,64h64a32,32,0,0,0-64,0ZM200,48H173.25A47.93,47.93,0,0,1,176,64v8a8,8,0,0,1-8,8H88a8,8,0,0,1-8-8V64a47.93,47.93,0,0,1,2.75-16H56V216H200Z"/></svg></span>
+            <span>读书计划</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-user glass-panel">
+          <div class="avatar-badge">管</div>
+          <div>
+            <div id="sidebarUserName" class="sidebar-user-name">系统用户</div>
+            <div class="sidebar-user-role">人才运营中心</div>
+          </div>
+        </div>
+
+        <div class="sidebar-version">V1.0</div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <div class="topbar-title-group">
+            <button id="mobileMenuBtn" class="mobile-menu-btn" onclick="toggleMobileMenu()"><svg style="width:20px;height:20px" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"/></svg></button>
+            <div>
+              <h1 id="pageTitle">成员管理</h1>
+              <p id="pageSubtitle">管理人才项目成员基础资料</p>
+            </div>
+
+          </div>
+
+          <div class="user-area">
+            <div class="topbar-search-wrap">
+              <span class="search-icon"><svg style="width:15px;height:15px" viewBox="0 0 256 256" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg></span>
+              <input class="topbar-search" placeholder="搜索成员、书目、日程" onkeydown="if(event.key === 'Enter') handleTopbarSearch(this.value)" />
+            </div>
+            <span id="currentUserName"></span>
+            <span id="currentUserRole" class="role-badge"></span>
+            <button class="btn btn-primary" onclick="logout()">退出登录</button>
+          </div>
+        </header>
+
+        <section id="content" class="content"></section>
+      </main>
+    </div>
+  </section>
+
+  <!-- 通用弹窗 -->
+  <div id="modalMask" class="modal-mask hidden">
+    <div class="modal glass-panel">
+      <div class="modal-header">
+        <h2 id="modalTitle">弹窗标题</h2>
+        <button class="icon-btn" onclick="closeModal()"><svg style="width:16px;height:16px" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Toast 提示 -->
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="./js/mock-data.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
