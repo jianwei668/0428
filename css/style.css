@@ -947,11 +947,25 @@ textarea.form-control {
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
-  font-size: 12px;
-  line-height: 1.3;
-  font-weight: 900;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
   background: #dbeafe;
   color: #1d4ed8;
+}
+
+.pill-time {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.75;
+  line-height: 1.3;
+}
+
+.pill-title {
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.35;
+  word-break: break-all;
 }
 
 .schedule-pill.personal {

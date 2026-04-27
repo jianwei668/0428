@@ -740,7 +740,8 @@ function renderDayView() {
 function renderSchedulePill(schedule) {
   return `
     <button class="schedule-pill ${schedule.type === "personal" ? "personal" : ""}" onclick="viewSchedule(${schedule.id})">
-      ${formatTime(schedule.startTime)} ${escapeHtml(schedule.title)}
+      <span class="pill-time">${formatTime(schedule.startTime)}</span>
+      <span class="pill-title">${escapeHtml(schedule.title)}</span>
     </button>
   `;
 }
